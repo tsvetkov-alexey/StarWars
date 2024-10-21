@@ -1,0 +1,76 @@
+.section {
+  padding-block: var(--section-padding-y);
+
+  &__title {
+    text-align: center;
+    padding-top: var(--section-padding-y);
+  }
+
+  &__search {
+    padding-block: var(--section-padding-y);
+  }
+
+  &__filter {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    &-content {
+      display: flex;
+      align-items: center;
+      column-gap: 4px;
+      box-shadow: var(--shadow);
+      padding: 8px;
+      border-radius: 8px;
+
+      @include hover {
+        cursor: pointer;
+      }
+    }
+
+    &-title {
+      @include fluid-text(22, 18);
+    }
+  }
+
+  &__form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 30px;
+    position: relative;
+
+    &-input {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      background-color: var(--color-accent-light);
+      border: 0;
+      border-radius: var(--border-radius-form);
+      box-shadow: var(--shadow);
+      outline: none;
+      padding: 10px 60px;
+      font-weight: 200;
+
+      @include fluid-text(22, 18);
+
+      @include hover {
+        box-shadow: var(--shadow-hover);
+      }
+    }
+
+    &-image {
+      position: absolute;
+      left: 10px;
+      margin-left: auto;
+    }
+  }
+
+  &__cards {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+  }
+}

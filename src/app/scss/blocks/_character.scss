@@ -1,0 +1,49 @@
+.character-card {
+  width: 28%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: var(--border-radius-card);
+  padding: var(--card-padding-y) 0;
+  box-shadow: var(--shadow);
+  margin-bottom: 48px;
+  transition: all var(--transition-duration) ease;
+
+  @include hover{
+    box-shadow: var(--shadow-hover);
+  }
+
+  &__title {
+    @include fluid-text(30, 24);
+
+    font-weight: 400;
+    padding: 18px 0;
+  }
+
+  &__image {
+    position: relative;
+
+    &-hero {
+      border-radius: var(--border-radius-image);
+    }    
+
+    &-like {
+      position: absolute;
+      right: 6px;
+      top: 6px;
+      border-radius: 50%;
+      background-color: var(--color-light);
+      padding: 8px 6px;
+
+      @include hover {
+        cursor: pointer;
+      }
+
+    }
+  }
+
+
+  &__button {
+    width: 90%;
+  }
+}

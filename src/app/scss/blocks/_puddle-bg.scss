@@ -1,0 +1,10 @@
+.puddle-bg {
+  padding: 6px 10px;
+  background-color: var(--color-accent-blue);
+  color: var(--color-light);
+  border-radius: var(--border-radius-form);
+
+  &--red {
+    background-color: var(--color-accent-red);
+  }
+}
