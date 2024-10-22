@@ -4,10 +4,12 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 export interface CharacterState {
   charactersData: CharactersResponse | null;
+  allCharactersArr: CharactersResponse | null;
 }
 
 const initialState: CharacterState = {
   charactersData: null,
+  allCharactersArr: null,
 };
 
 const charactersSlice = createSlice({
@@ -17,10 +19,13 @@ const charactersSlice = createSlice({
     setCharacters(state, action: PayloadAction<CharactersResponse>) {
       state.charactersData = action.payload;
     },
+    setAllCharactersArr(state, action: PayloadAction<CharactersResponse>) {
+      state.allCharactersArr = action.payload;
+    },
   },
 });
 
-export const { setCharacters } = charactersSlice.actions;
+export const { setCharacters, setAllCharactersArr } = charactersSlice.actions;
 
 export const selectCharacters = (state: RootState) => state.characters;
 

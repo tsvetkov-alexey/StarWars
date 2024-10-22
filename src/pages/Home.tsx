@@ -1,7 +1,6 @@
 import { Pagination } from '@/UI/pagination';
 import { AllCharacters } from '@/components/AllCharacters';
 import { Filter } from '@/components/Filter';
-import { Header } from '@/components/Header';
 import { Search } from '@/components/Search';
 import { SearchPhrase } from '@/components/SearchPhrase';
 import { TitlePhrase } from '@/components/TitlePhrase';
@@ -17,7 +16,6 @@ export const Home = () => {
 
   return (
     <>
-      <Header />
       <main className="content">
         <section className="section container">
           <TitlePhrase />

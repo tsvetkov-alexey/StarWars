@@ -1,4 +1,3 @@
-import { Header } from '@/components/Header';
 import { selectCharacters } from '@/redux/characters/slice';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -35,7 +34,6 @@ export const FullCharacter = () => {
 
   return (
     <>
-      <Header />
       <main className="content">
         <section className="section container">
           <div className="full-character">

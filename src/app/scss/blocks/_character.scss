@@ -16,6 +16,14 @@
     box-shadow: var(--shadow-hover);
   }
 
+  @include mobile {
+    width: 35%;
+  }
+
+  @include mobile-s {
+    width: 100%;
+  }
+
   &__title {
     @include fluid-text(26, 22);
 

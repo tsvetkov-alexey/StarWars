@@ -7,6 +7,10 @@
   align-items: center;
   column-gap: 16px;
 
+  @include mobile-s {
+    column-gap: 10px;
+  }
+
   &__list {
     display: flex;
     justify-content: space-between;
@@ -42,6 +46,10 @@
 
     &:not(:last-child) {
       margin-right: 10px;
+
+      @include mobile-s {
+        margin-right: 5px;
+      }
     }
 
     &--active {

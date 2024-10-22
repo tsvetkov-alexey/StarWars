@@ -47,6 +47,7 @@ export const Filter = () => {
 
         {open && (
           <form className="section__filter-block" onClick={handleFilterClick}>
+            <h3 className="section__filter-title">Applies for each page individually!</h3>
             <input
               type="checkbox"
               id="all"
