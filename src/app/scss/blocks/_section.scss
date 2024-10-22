@@ -1,3 +1,6 @@
+@use '../media' as *;
+@use '../mixins' as *;
+
 .section {
   padding-block: var(--section-padding-y);
 
@@ -29,7 +32,7 @@
     }
 
     &-title {
-      @include fluid-text(22, 18);
+      @include fluid-text(22, 16);
     }
   }
 

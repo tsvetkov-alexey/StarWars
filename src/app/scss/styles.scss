@@ -1,7 +1,14 @@
 @use 'variables';
 @use 'normalize';
 @use 'fonts';
+@use 'mixins' as *;
+@use 'media' as *;
+@use 'utils' as *;
+@use 'globals' as *;
 
-@import 'mixins', 'media', 'utils', 'globals';
-
-@import 'blocks/header', 'blocks/puddle-bg', 'blocks/section', 'blocks/button', 'blocks/character';
+@use 'blocks/header';
+@use 'blocks/puddle-bg';
+@use 'blocks/section';
+@use 'blocks/button';
+@use 'blocks/character';
+@use 'blocks/pagination';

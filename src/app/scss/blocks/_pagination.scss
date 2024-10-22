@@ -1,0 +1,58 @@
+@use '../media' as *;
+@use '../mixins' as *;
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 16px;
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__button {
+    border-radius: 6px;
+    border: var(--border);
+    padding: 0px 6px;
+
+    &:disabled {
+      background-color: rgb(218, 217, 217);
+      color: var(--color-dark);
+    }
+
+    &:not(:disabled) {
+      @include hover {
+        background-color: var(--color-dark);
+        color: var(--color-light);
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__item {
+    border: var(--border);
+    border-radius: 6px;
+    width: 30px;
+    text-align: center;
+    padding: 0px 6px;
+    transition: all 400ms ease;
+
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+
+    &--active {
+      background-color: var(--color-dark);
+      color: var(--color-light);
+    }
+
+    @include hover {
+      background-color: var(--color-dark);
+      color: var(--color-light);
+      cursor: pointer;
+    }
+  }
+}

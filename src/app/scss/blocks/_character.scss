@@ -1,5 +1,8 @@
+@use '../media' as *;
+@use '../mixins' as *;
+
 .character-card {
-  width: 28%;
+  width: 27%;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -9,12 +12,12 @@
   margin-bottom: 48px;
   transition: all var(--transition-duration) ease;
 
-  @include hover{
+  @include hover {
     box-shadow: var(--shadow-hover);
   }
 
   &__title {
-    @include fluid-text(30, 24);
+    @include fluid-text(26, 22);
 
     font-weight: 400;
     padding: 18px 0;
@@ -25,7 +28,7 @@
 
     &-hero {
       border-radius: var(--border-radius-image);
-    }    
+    }
 
     &-like {
       position: absolute;
@@ -38,10 +41,8 @@
       @include hover {
         cursor: pointer;
       }
-
     }
   }
-
 
   &__button {
     width: 90%;

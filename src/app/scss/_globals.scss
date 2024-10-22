@@ -1,3 +1,5 @@
+@use 'mixins' as *;
+
 body {
   @include fluid-text(28, 24);
 
@@ -23,10 +25,10 @@ a {
 
 h2 {
   font-weight: 400;
-  @include fluid-text(36,30);
+  @include fluid-text(36, 30);
 }
 
 h3 {
   font-weight: 400;
-  @include fluid-text(28,24);
+  @include fluid-text(28, 24);
 }
