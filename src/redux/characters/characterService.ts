@@ -10,7 +10,12 @@ export const characterApi = createApi({
         url: `people/?page=${page}`,
       }),
     }),
+    searchCharacters: builder.query<CharactersResponse, { search: string; page: number }>({
+      query: ({ search = '', page = 1 }) => ({
+        url: `people/?search=${search}&page=${page}`,
+      }),
+    }),
   }),
 });
 
-export const { useGetCharactersQuery } = characterApi;
+export const { useGetCharactersQuery, useSearchCharactersQuery } = characterApi;

@@ -11,6 +11,10 @@
 
   &__search {
     padding-block: var(--section-padding-y);
+
+    &-phrase {
+      text-align: center;
+    }
   }
 
   &__filter {

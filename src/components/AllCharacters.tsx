@@ -1,31 +1,23 @@
 import { CharacterCard } from './CharacterCard';
 import { Loader } from '@/UI/loader';
-import { useGetCharactersQuery } from '@/redux/characters/characterService';
-import { setCharacters } from '@/redux/characters/slice';
-import { selectFilter, setIsFetching } from '@/redux/filter/slice';
+import { useCharacters } from '@/hooks/useCharacters';
+import { selectCharacters, setCharacters } from '@/redux/characters/slice';
+import { setIsFetching } from '@/redux/filter/slice';
 import { useAppDispatch } from '@/redux/store';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 export const AllCharacters = () => {
-  const { currentPage } = useSelector(selectFilter);
+  const { data, error, isFetching } = useCharacters();
   const dispatch = useAppDispatch();
-
-  const { data, error, isFetching } = useGetCharactersQuery(currentPage);
-  console.log(data);
 
   dispatch(setIsFetching(isFetching));
 
-  const characters = isFetching ? (
-    <Loader />
-  ) : (
-    data?.results.map((el, i) => <CharacterCard {...el} id={i + (currentPage - 1) * 10} key={i} />)
-  );
-
   useEffect(() => {
-    if (data?.results) {
-      dispatch(setCharacters(data.results));
+    if (data) {
+      dispatch(setCharacters(data));
     }
+
     if (!isFetching) {
       window.scrollTo({
         top: 0,
@@ -33,6 +25,14 @@ export const AllCharacters = () => {
       });
     }
   }, [data, isFetching]);
+
+  const { charactersData } = useSelector(selectCharacters);
+
+  const characters = isFetching ? (
+    <Loader />
+  ) : (
+    charactersData?.results.map((el, i) => <CharacterCard {...el} key={i} />)
+  );
 
   return <section className="section__cards container">{characters}</section>;
 };

@@ -1,12 +1,14 @@
 import like from '@/assets/like.svg';
 import { Character } from '@/redux/characters/types';
 
-export const CharacterCard = ({ name, id }: Character) => {
+export const CharacterCard = ({ name, url }: Character) => {
+  const id = url.replace('https://swapi.dev/api/people/', '').replace('/', '');
+
   return (
     <div className="character-card">
       <div className="character-card__image">
         <img
-          src={`https://starwars-visualguide.com/assets/img/characters/${id + 1}.jpg`}
+          src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}
           alt=""
           className="character-card__image-hero"
           width="260"

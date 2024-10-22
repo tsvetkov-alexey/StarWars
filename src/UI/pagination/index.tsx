@@ -1,10 +1,12 @@
-import { setCharacters } from '@/redux/characters/slice';
+import { selectCharacters } from '@/redux/characters/slice';
 import { selectFilter, setCurrentPage } from '@/redux/filter/slice';
 import { useAppDispatch } from '@/redux/store';
 import { useSelector } from 'react-redux';
 
 export const Pagination = () => {
-  const totalPages = 9;
+  const { charactersData } = useSelector(selectCharacters);
+
+  const totalPages = charactersData?.count ? Math.ceil(charactersData.count / 10) : 0;
 
   const { currentPage } = useSelector(selectFilter);
   const dispatch = useAppDispatch();
@@ -22,7 +24,6 @@ export const Pagination = () => {
 
   const handlePageChange = (page: number) => {
     if (page >= 1 && page <= totalPages) {
-      dispatch(setCharacters([]));
       dispatch(setCurrentPage(page));
     }
   };

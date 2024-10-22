@@ -1,21 +1,21 @@
 import { RootState } from '../store';
-import { Character } from './types';
+import { CharactersResponse } from './types';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 export interface CharacterState {
-  characters: Character[];
+  charactersData: CharactersResponse | null;
 }
 
 const initialState: CharacterState = {
-  characters: [],
+  charactersData: null,
 };
 
 const charactersSlice = createSlice({
   name: 'characters',
   initialState,
   reducers: {
-    setCharacters(state, action: PayloadAction<Character[]>) {
-      state.characters = action.payload;
+    setCharacters(state, action: PayloadAction<CharactersResponse>) {
+      state.charactersData = action.payload;
     },
   },
 });
