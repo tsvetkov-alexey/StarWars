@@ -1,5 +1,5 @@
 import searchIcon from '@/assets/search-icon.svg';
-import { setSearch } from '@/redux/filter/slice';
+import { setCurrentPage, setSearch } from '@/redux/filter/slice';
 import { useAppDispatch } from '@/redux/store';
 import { useState } from 'react';
 
@@ -7,9 +7,11 @@ export const Search = () => {
   const [value, setValue] = useState('');
 
   const dispatch = useAppDispatch();
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     dispatch(setSearch(value));
+    dispatch(setCurrentPage(1));
   };
 
   return (

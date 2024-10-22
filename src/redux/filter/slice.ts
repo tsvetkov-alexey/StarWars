@@ -6,6 +6,10 @@ const initialState: FilterSliceState = {
   search: '',
   currentPage: 1,
   isFetching: true,
+  allGenders: true,
+  male: true,
+  female: true,
+  notAvailableGender: true,
 };
 
 const filterSlice = createSlice({
@@ -21,10 +25,32 @@ const filterSlice = createSlice({
     setIsFetching(state, action: PayloadAction<boolean>) {
       state.isFetching = action.payload;
     },
+
+    // Редьюсеры для фильтрации
+    setAllGenders(state, action: PayloadAction<boolean>) {
+      state.allGenders = action.payload;
+    },
+    setMale(state, action: PayloadAction<boolean>) {
+      state.male = action.payload;
+    },
+    setFemale(state, action: PayloadAction<boolean>) {
+      state.female = action.payload;
+    },
+    setNotAvailableGender(state, action: PayloadAction<boolean>) {
+      state.notAvailableGender = action.payload;
+    },
   },
 });
 
-export const { setSearch, setCurrentPage, setIsFetching } = filterSlice.actions;
+export const {
+  setSearch,
+  setCurrentPage,
+  setIsFetching,
+  setAllGenders,
+  setMale,
+  setFemale,
+  setNotAvailableGender,
+} = filterSlice.actions;
 
 export const selectFilter = (state: RootState) => state.filter;
 

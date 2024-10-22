@@ -21,7 +21,7 @@ export interface Character {
 // Тип для ответа от API
 export interface CharactersResponse {
   count: number;
-  next: string | null;
-  previous: string | null;
+  next?: string | null;
+  previous?: string | null;
   results: Character[];
 }

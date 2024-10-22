@@ -1,5 +1,6 @@
 import like from '@/assets/like.svg';
 import { Character } from '@/redux/characters/types';
+import { Link } from 'react-router-dom';
 
 export const CharacterCard = ({ name, url }: Character) => {
   const id = url.replace('https://swapi.dev/api/people/', '').replace('/', '');
@@ -27,9 +28,9 @@ export const CharacterCard = ({ name, url }: Character) => {
         </div>
       </div>
       <h2 className="character-card__title">{name}</h2>
-      <button className="character-card__button button" type="button">
+      <Link to={`character/${id}`} className="character-card__button button">
         Learn more
-      </button>
+      </Link>
     </div>
   );
 };

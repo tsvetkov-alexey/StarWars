@@ -7,10 +7,8 @@ import { useSelector } from 'react-redux';
 
 export const useCharacters = () => {
   const { currentPage, search: searchTitle } = useSelector(selectFilter);
-
   if (searchTitle) {
     return useSearchCharactersQuery({ search: searchTitle, page: currentPage });
   }
-
   return useGetCharactersQuery(currentPage);
 };

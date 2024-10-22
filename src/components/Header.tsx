@@ -1,10 +1,20 @@
 import logo from '@/assets/logo.svg';
+import { setCurrentPage, setSearch } from '@/redux/filter/slice';
+import { useAppDispatch } from '@/redux/store';
+import { Link } from 'react-router-dom';
 
 export const Header = () => {
+  const dispatch = useAppDispatch();
+
+  const handleLogo = () => {
+    dispatch(setSearch(''));
+    dispatch(setCurrentPage(1));
+  };
+
   return (
     <header className="header">
       <div className="header__inner container">
-        <a href="/" className="header__logo logo" aria-label="Star Wars">
+        <Link to="/" className="header__logo logo" aria-label="Star Wars" onClick={handleLogo}>
           <img
             src={logo}
             alt=""
@@ -14,11 +24,11 @@ export const Header = () => {
             loading="lazy"
           />
           <span className="header__logo-text">Star Wars</span>
-        </a>
+        </Link>
         <nav className="header__menu">
-          <a href="/" className="header__menu-link">
+          <Link to="/favourites" className="header__menu-link">
             Favourites
-          </a>
+          </Link>
         </nav>
       </div>
     </header>
